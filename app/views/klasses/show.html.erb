@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @klass.name %>
+</p>
+
+<p>
+  <strong>Teachers:</strong>
+  <ul>
+    <%= @klass.teachers.each do |teacher| %>
+      <li><%= link_to teacher.first_name, teacher %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Students:</strong>
+  <ul>
+    <%= @klass.students.each do |student| %>
+    <li><%= link_to student.first_name, student %></li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_klass_path(@klass) %> |
+<%= link_to 'Back', klasses_path %>

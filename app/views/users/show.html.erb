@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Middle name:</strong>
+  <%= @user.middle_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.credential.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong>Phone Number:</strong>
+  <%= @user.phone_number %>
+</p>
+
+<p>
+  <strong>Schools:</strong>
+  <ul>
+    <%= @user.schools.each do |school| %>
+      <li><%= link_to school.name, school %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Classes:</strong>
+  <ul>
+    <%= @user.klasses.each do |klass| %>
+    <li><%= link_to klass.name, klass %></li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Change Email/Password', edit_credential_registration_path(current_credential) %> |
+<%= link_to 'Back', current_user %>

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @school.name %>
+</p>
+
+<p>
+  <strong>Principals:</strong>
+  <ul>
+    <%= @school.principals.each do |principal| %>
+      <li><%= link_to principal.first_name, principal %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Teachers:</strong>
+  <ul>
+    <%= @school.teachers.each do |teachers| %>
+    <li><%= link_to teachers.first_name, teachers %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Students:</strong>
+  <ul>
+    <%= @school.students.each do |students| %>
+    <li><%= link_to students.first_name, students %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Classes:</strong>
+  <ul>
+    <%= @school.klasses.active.map(&:name).each do |klass| %>
+    <li><%= link_to "#{klass}", klass_path(klass) %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong><%= link_to 'Add Class', new_klass_path(school: @school.id) %></strong>
+</p>
+
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>
